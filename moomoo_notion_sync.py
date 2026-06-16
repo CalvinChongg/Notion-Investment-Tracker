@@ -95,7 +95,7 @@ def get_existing_pages(notion):
     Used to decide whether to create or update.
     """
     
-    results = notion.data_sources.query(data_source_id=NOTION_DATABASE_ID).get("results", [])
+    results = notion.databases.update(database_id=NOTION_DATABASE_ID).get("results", [])
     pages = {}
     for page in results:
         props = page.get("properties", {})
