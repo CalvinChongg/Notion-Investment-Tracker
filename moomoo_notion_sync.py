@@ -68,7 +68,7 @@ def get_positions():
         avg_cost   = float(row.get("cost_price", 0))
         cur_price  = float(row.get("last_price", 0) or row.get("market_val", 0) / shares if shares else 0)
         pl_val     = float(row.get("pl_val", 0))          # Total P&L $
-        pl_ratio   = float(row.get("pl_ratio", 0)) * 100  # Total P&L % (moomoo gives 0-1)
+        pl_ratio   = float(row.get("pl_ratio", 0))        # Total P&L % (moomoo gives decimals, pass on to Notion to handle conversion)
         today_pl   = float(row.get("today_pl_val", 0))    # Daily P&L $
 
         positions.append({
